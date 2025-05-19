@@ -6,10 +6,10 @@
 
 import 'dart:convert';
 
-import 'package:dart_date/dart_date.dart';
 import 'package:dart_git/dart_git.dart';
 import 'package:dart_git/utils/date_time.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
+import 'package:flutter/material.dart';
 import 'package:gitjournal/core/file/file.dart';
 import 'package:gitjournal/core/file/file_storage.dart';
 import 'package:gitjournal/core/folder/notes_folder_config.dart';
@@ -41,7 +41,7 @@ void main() {
     late NotesFolderConfig config;
     late FileStorage fileStorage;
 
-    final gitDt = Date.startOfToday;
+    final gitDt = DateUtils.dateOnly(DateTime.now());
 
     setUpAll(() async {
       tempDir = await io.Directory.systemTemp.createTemp('__storage_test__');
